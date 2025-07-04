@@ -398,4 +398,45 @@
 						$main._show(location.hash.substr(1), true);
 					});
 
+		// Form handling for service requests
+			$('form[action*="formspree.io"]').on('submit', function(e) {
+				var form = $(this);
+				var submitBtn = form.find('input[type="submit"]');
+				var originalText = submitBtn.val();
+
+				// Change button text to show loading
+				submitBtn.val('Sending...').prop('disabled', true);
+
+				// Submit form via AJAX
+				$.ajax({
+					url: form.attr('action'),
+					method: 'POST',
+					data: form.serialize(),
+					dataType: 'json',
+					success: function(data) {
+						// Show success message
+						form.find('#form-success').show();
+						form.find('.fields').hide();
+						form.find('.actions').hide();
+
+						// Scroll to success message
+						$('html, body').animate({
+							scrollTop: form.find('#form-success').offset().top - 100
+						}, 500);
+					},
+					error: function(xhr, status, error) {
+						// If AJAX fails, let the form submit normally
+						// This ensures the form still works even if JavaScript has issues
+						form.off('submit').submit();
+					},
+					complete: function() {
+						// Reset button
+						submitBtn.val(originalText).prop('disabled', false);
+					}
+				});
+
+				// Prevent default form submission
+				e.preventDefault();
+			});
+
 })(jQuery);

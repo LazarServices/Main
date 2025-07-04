@@ -30,15 +30,16 @@
             <div class="content">
                 <div class="inner">
                     <h1>Lazar Services</h1>
-                    <p>
-                        </p> </div> </div>
+                    <p></p>
+                </div>
+            </div>
             <nav>
                 <ul>
                     <li><a href="#GrassCutting">GRASS CUTTING</a></li>
                     <li><a href="#DogWalking">DOG WALKING</a></li>
                     <li><a href="#GarbageBinClean">GARBAGE &amp; RECYCLING BIN CLEAN UP</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <!--<li><a href="#elements">Elements</a></li>-->
+                    <!-- <li><a href="#elements">Elements</a></li> -->
                 </ul>
             </nav>
         </header>
@@ -79,7 +80,8 @@
             <article id="DogWalking">
                 <h2 class="major">DOG WALKING</h2>
                 <span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-                <p>Friendly pet already trained to walk loose on a leash.</p>  <table>
+                <p>Friendly pet already trained to walk loose on a leash.</p>
+                <table>
                     <thead>
                         <tr>
                             <th>DOG WALKING</th>
@@ -93,16 +95,17 @@
                             <td>$20 for 30 minutes</td>
                             <td>$15 for 30 minutes</td>
                         </tr>
-                      <tr>
+                        <tr>
                             <td>MULTIPLE DOGs</td>
                             <td>PLEASE CONTACT</td>
                             <td>PLEASE CONTACT</td>
                         </tr>
                     </tbody>
-                </table></article>
+                </table>
+            </article>
 
             <!-- Garbage Bin Clean Up -->
-             <article id="GarbageBinClean">
+            <article id="GarbageBinClean">
                 <h2 class="major">GARBAGE BIN CLEAN</h2>
                 <span class="image main"><img src="images/pic01.jpg" alt="" /></span>
                 <p>Discounts If you have garden hose and running water to provide thorough bin cleanings.</p>
@@ -115,16 +118,13 @@
                             <th>DISCOUNTED RATE</th>
                         </tr>
                     </thead>
-
-
                     <tbody>
-
                         <tr>
                             <td>ONE BIN</td>
                             <td>$15</td>
                             <td>$10</td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td>TWO BINS</td>
                             <td>$25</td>
                             <td>$15</td>
@@ -135,64 +135,231 @@
 
 
             <!-- Contact -->
-
-<!-- YOUR SQUARE FOOTAGE OF YOUR YARD TO HAVE GRASS CUT
-
-TYPE OF DOG AND APPROXIMATE WEIGHT
-NUMBER OF BINS TO BE CLEANED -->
-
             <article id="contact">
                 <h2 class="major">Contact</h2>
                 <p>PLEASE PROVIDE YOUR ADDRESS AND AREA OF INTEREST TO SCHEDULE</p>
                 <p>services provided must be paid for in advance, no credit cards accepted.</p>
-                <form method="post" action="#">
+
+                <form method="post" action="https://formspree.io/f/xdknowvp">
+                    <!-- Hidden field to identify this as a service booking form -->
+                    <input type="hidden" name="_subject" value="New Service Booking Request - Lazar Services">
+                    <input type="hidden" name="_next" value="thank-you.html">
+                    <input type="hidden" name="_language" value="en">
                     <div class="fields">
                         <div class="field half">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" />
+                            <label for="name">Name *</label>
+                            <input type="text" name="name" id="name" required />
                         </div>
                         <div class="field half">
                             <label for="paymentmethod">payment method</label>
                             <select id="paymentmethod" name="paymentmethod">
-  <option value="eTransfer">eTransfer</option>
-  <option value="cash">Cash</option>
-</select>
+                                <option value="eTransfer">eTransfer</option>
+                                <option value="cash">Cash</option>
+                            </select>
                         </div>
                         <div class="field half">
-                            <label for="address ">Address</label>
-                            <input type="text" name="address" id="address" />
+                            <label for="address">Address *</label>
+                            <input type="text" name="address" id="address" required />
                         </div>
                         <div class="field half">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" />
+                            <label for="email">Email *</label>
+                            <input type="email" name="email" id="email" required />
                         </div>
 
+                        <div class="field">
+                            <label for="services">services</label>
 
-
-
-                       <div class="field">
-                            <label for="services ">services </label>
                             <input type="checkbox" id="gcut" name="gcut" value="gcut">
-<label for="gcut"> Grass Cutting</label><br>
+                            <label for="gcut"> Grass Cutting</label>
+                            <span class="help-icon" data-tooltip="Click here for help" title="Click for service details and pricing information">?</span>
+                            <br>
+                            <div id="gcut-details" class="service-details" style="display: none; margin-left: 2rem; margin-top: 1rem;">
+                                <div class="field half">
+                                    <label for="yard-size">Yard Size (sq ft)</label>
+                                    <input type="text" name="yard-size" id="yard-size" placeholder="e.g. 1000" />
+                                </div>
+                                <div class="field half">
+                                    <label for="yard-type">Yard Type</label>
+                                    <select name="yard-type" id="yard-type">
+                                        <option value="">Select...</option>
+                                        <option value="front">Front Yard Only</option>
+                                        <option value="back">Back Yard Only</option>
+                                        <option value="both">Both Front & Back</option>
+                                    </select>
+                                </div>
+                                <div class="field half">
+                                    <label for="grass-rate">Rate Type</label>
+                                    <select name="grass-rate" id="grass-rate">
+                                        <option value="">Select...</option>
+                                        <option value="standard">Standard Rate (I provide equipment)</option>
+                                        <option value="discount">Discounted Rate (You provide lawnmower)</option>
+                                    </select>
+                                </div>
+                                <div class="field half">
+                                    <label for="grass-schedule">Preferred Schedule</label>
+                                    <select name="grass-schedule" id="grass-schedule">
+                                        <option value="">Select...</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="biweekly">Bi-weekly</option>
+                                        <option value="monthly">Monthly</option>
+                                        <option value="onetime">One-time service</option>
+                                    </select>
+                                </div>
+                            </div>
 
-<input type="checkbox" id="dwalk" name="dwalk" value="dwalk">
-<label for="dwalk"> Dog Walking</label><br>
+                            <input type="checkbox" id="dwalk" name="dwalk" value="dwalk">
+                            <label for="dwalk"> Dog Walking</label>
+                            <br>
+                            <div id="dwalk-details" class="service-details" style="display: none; margin-left: 2rem; margin-top: 1rem;">
+                                <div id="dog-names-container">
+                                    <div class="field half dog-name-field">
+                                        <label for="dog-name-1">Dog 1 Name</label>
+                                        <input type="text" name="dog-name-1" id="dog-name-1" placeholder="Dog's name" />
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <button type="button" id="add-dog" class="button small">+ Add Another Dog</button>
+                                </div>
+                                <div class="field half">
+                                    <label for="dog-weight">Total Approximate Weight</label>
+                                    <input type="text" name="dog-weight" id="dog-weight" placeholder="e.g. 25 lbs" />
+                                </div>
+                                <div class="field half">
+                                    <label for="walk-time">Preferred Time Slot</label>
+                                    <select name="walk-time" id="walk-time">
+                                        <option value="">Select...</option>
+                                        <option value="early-morning">Early Morning (6-8 AM)</option>
+                                        <option value="morning">Morning (8-11 AM)</option>
+                                        <option value="midday">Midday (11 AM-2 PM)</option>
+                                        <option value="afternoon">Afternoon (2-5 PM)</option>
+                                        <option value="evening">Evening (5-7 PM)</option>
+                                        <option value="flexible">Flexible</option>
+                                    </select>
+                                </div>
+                                <div class="field half">
+                                    <label for="walk-frequency">Walking Frequency</label>
+                                    <select name="walk-frequency" id="walk-frequency">
+                                        <option value="">Select...</option>
+                                        <option value="daily">Daily</option>
+                                        <option value="weekdays">Weekdays Only</option>
+                                        <option value="weekends">Weekends Only</option>
+                                        <option value="few-times">Few times per week</option>
+                                        <option value="onetime">One-time walk</option>
+                                    </select>
+                                </div>
+                                <div class="field half">
+                                    <label for="walk-duration">Walk Duration</label>
+                                    <select name="walk-duration" id="walk-duration">
+                                        <option value="">Select...</option>
+                                        <option value="30min">30 minutes</option>
+                                        <option value="45min">45 minutes</option>
+                                        <option value="60min">1 hour</option>
+                                        <option value="custom">Other (specify in message)</option>
+                                    </select>
+                                </div>
+                            </div>
 
-<input type="checkbox" id="gclean" name="gclean" value="gclean">
-<label for="gclean"> Garbage/Recycling bin cleaning</label><br>
+                            <input type="checkbox" id="gclean" name="gclean" value="gclean">
+                            <label for="gclean"> Garbage/Recycling bin cleaning</label>
+                            <br>
+                            <div id="gclean-details" class="service-details" style="display: none; margin-left: 2rem; margin-top: 1rem;">
+                                <div class="field half">
+                                    <label for="bin-count">Number of Bins</label>
+                                    <select name="bin-count" id="bin-count">
+                                        <option value="">Select...</option>
+                                        <option value="1">1 Bin</option>
+                                        <option value="2">2 Bins</option>
+                                        <option value="3">3 Bins</option>
+                                        <option value="4">4+ Bins</option>
+                                    </select>
+                                </div>
+                                <div class="field half">
+                                    <label for="bin-type">Bin Types</label>
+                                    <input type="text" name="bin-type" id="bin-type" placeholder="e.g. Garbage, Recycling, Compost" />
+                                </div>
+                                <div class="field half">
+                                    <label for="clean-rate">Rate Type</label>
+                                    <select name="clean-rate" id="clean-rate">
+                                        <option value="">Select...</option>
+                                        <option value="standard">Standard Rate (I provide water/hose)</option>
+                                        <option value="discount">Discounted Rate (You provide hose/water)</option>
+                                    </select>
+                                </div>
+                                <div class="field half">
+                                    <label for="clean-frequency">Cleaning Frequency</label>
+                                    <select name="clean-frequency" id="clean-frequency">
+                                        <option value="">Select...</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="biweekly">Bi-weekly</option>
+                                        <option value="monthly">Monthly</option>
+                                        <option value="onetime">One-time cleaning</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="booking">Booking & Scheduling</label>
+
+                            <div class="field half">
+                                <label for="preferred-date">Preferred Start Date</label>
+                                <input type="date" name="preferred-date" id="preferred-date" />
+                            </div>
+
+                            <div class="field half">
+                                <label for="preferred-time">Preferred Time</label>
+                                <select name="preferred-time" id="preferred-time">
+                                    <option value="">Select...</option>
+                                    <option value="morning">Morning (8-12 PM)</option>
+                                    <option value="afternoon">Afternoon (12-5 PM)</option>
+                                    <option value="evening">Evening (5-8 PM)</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+
+                            <div class="field half">
+                                <label for="backup-date">Backup Date (weather contingency)</label>
+                                <input type="date" name="backup-date" id="backup-date" />
+                            </div>
+
+                            <div class="field half">
+                                <label for="backup-time">Backup Time</label>
+                                <select name="backup-time" id="backup-time">
+                                    <option value="">Select...</option>
+                                    <option value="morning">Morning (8-12 PM)</option>
+                                    <option value="afternoon">Afternoon (12-5 PM)</option>
+                                    <option value="evening">Evening (5-8 PM)</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>
+                                    <input type="checkbox" id="recurring" name="recurring" value="yes">
+                                    This is for recurring service (check for weekly/monthly scheduling)
+                                </label>
+                            </div>
                         </div>
 
                         <div class="field">
                             <label for="message">Message</label>
-                            <textarea name="message" id="message" rows="4"></textarea>
+                            <textarea name="message" id="message" rows="4" placeholder="Please include any special instructions, additional details, or specific requirements..."></textarea>
                         </div>
                     </div>
                     <ul class="actions">
-                        <li><input type="submit" value="Send Message" class="primary" /></li>
-                        <li><input type="reset" value="Reset" /></li>
+                        <li><input type="submit" value="Send Service Request" class="primary" /></li>
+                        <li><input type="reset" value="Reset Form" /></li>
                     </ul>
+   <div style=" padding: 1rem; margin: 1rem 0; border-radius: 5px; border-left: 4px solid #4CAF50;">
+                    <p><strong>📧 Where does your request go?</strong><br>
+                    Your service request will be sent directly to our email. We use a secure form service (Formspree) to process submissions and will respond within 24 hours to confirm your booking and provide payment details.</p>
+                </div>
+                    <!-- Success message (initially hidden) -->
+                    <div id="form-success" style="display: none; padding: 1rem; background: #4CAF50; color: white; margin-top: 1rem; border-radius: 5px;">
+                        <h4>Thank you for your service request!</h4>
+                        <p>We have received your booking request and will contact you within 24 hours to confirm your appointment and provide payment details.</p>
+                    </div>
                 </form>
-
             </article>
 
             <!-- Elements -->
@@ -389,7 +556,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
                 <section>
                     <h3 class="major">Form</h3>
-                    <form method="post" action="#">
+                    <form method="post" action="https://formspree.io/f/xdknowvp">
                         <div class="fields">
                             <div class="field half">
                                 <label for="demo-name">Name</label>
@@ -443,7 +610,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
         <!-- Footer -->
         <footer id="footer">
-
+            <p class="copyright">&copy; 2025 Lazar Services. All rights reserved.</p>
         </footer>
 
     </div>
@@ -457,6 +624,75 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <!-- Custom Form Scripts -->
+    <script>
+        $(document).ready(function() {
+            let dogCount = 1;
+
+            // Show/hide service details when checkboxes are clicked
+            $('#gcut').change(function() {
+                if ($(this).is(':checked')) {
+                    $('#gcut-details').slideDown();
+                } else {
+                    $('#gcut-details').slideUp();
+                }
+            });
+
+            $('#dwalk').change(function() {
+                if ($(this).is(':checked')) {
+                    $('#dwalk-details').slideDown();
+                } else {
+                    $('#dwalk-details').slideUp();
+                }
+            });
+
+            $('#gclean').change(function() {
+                if ($(this).is(':checked')) {
+                    $('#gclean-details').slideDown();
+                } else {
+                    $('#gclean-details').slideUp();
+                }
+            });
+
+            // Add dog functionality
+            $('#add-dog').click(function() {
+                dogCount++;
+                const dogNameField = `
+                    <div class="field half dog-name-field" data-dog-number="${dogCount}">
+                        <label for="dog-name-${dogCount}">Dog ${dogCount} Name</label>
+                        <input type="text" name="dog-name-${dogCount}" id="dog-name-${dogCount}" placeholder="Dog's name" />
+                        <button type="button" class="remove-dog button small" data-dog-id="${dogCount}">Remove</button>
+                    </div>
+                `;
+                $('#dog-names-container').append(dogNameField);
+            });
+
+            // Remove dog functionality (using event delegation)
+            $(document).on('click', '.remove-dog', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                console.log('Remove button clicked'); // Debug log
+
+                $(this).closest('.dog-name-field').remove();
+
+                // Update dog numbers
+                let newCount = 1;
+                $('.dog-name-field').each(function(index) {
+                    $(this).attr('data-dog-number', newCount);
+                    $(this).find('label').text(`Dog ${newCount} Name`);
+                    $(this).find('input').attr('name', `dog-name-${newCount}`);
+                    $(this).find('input').attr('id', `dog-name-${newCount}`);
+                    $(this).find('.remove-dog').attr('data-dog-id', newCount);
+                    newCount++;
+                });
+
+                dogCount = $('.dog-name-field').length;
+                console.log('New dog count:', dogCount); // Debug log
+            });
+        });
+    </script>
 
 </body>
 </html>

@@ -22,8 +22,8 @@
             <div class="logo">
                 <!-- <span class="icon fa-gem"></span> -->
 
-                <span class="icon main" style="overflow:hidden; border-radius:50%; display:inline-block; width:96px; height:96px; background:#fff;">
-                    <img src="images/logo.png" alt="" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" />
+                <span class="icon main">
+                    <img src="images/logo.png" alt="" />
                 </span>
 
             </div>
@@ -137,7 +137,6 @@
             <!-- Contact -->
             <article id="contact">
                 <h2 class="major">Contact</h2>
-                <p>PLEASE PROVIDE YOUR ADDRESS AND AREA OF INTEREST TO SCHEDULE</p>
                 <p>services provided must be paid for in advance, no credit cards accepted.</p>
 
                 <form method="post" action="https://formspree.io/f/xdknowvp">
@@ -145,35 +144,64 @@
                     <input type="hidden" name="_subject" value="New Service Booking Request - Lazar Services">
                     <input type="hidden" name="_next" value="thank-you.html">
                     <input type="hidden" name="_language" value="en">
-                    <div class="fields">
-                        <div class="field half">
-                            <label for="name">Name *</label>
-                            <input type="text" name="name" id="name" required />
-                        </div>
-                        <div class="field half">
-                            <label for="paymentmethod">payment method</label>
-                            <select id="paymentmethod" name="paymentmethod">
-                                <option value="eTransfer">eTransfer</option>
-                                <option value="cash">Cash</option>
-                            </select>
-                        </div>
-                        <div class="field half">
-                            <label for="address">Address *</label>
-                            <input type="text" name="address" id="address" required />
-                        </div>
-                        <div class="field half">
-                            <label for="email">Email *</label>
-                            <input type="email" name="email" id="email" required />
-                        </div>
 
-                        <div class="field">
-                            <label for="services">services</label>
+                    <!-- Contact Information Section (Always Visible) -->
+                    <div class="contact-info-section">
+                        <h3 class="section-title">Contact Information</h3>
+                        <div class="fields">
+                            <div class="field half">
+                                <label for="name">Name *</label>
+                                <input type="text" name="name" id="name" required />
+                            </div>
+                            <div class="field half">
+                                <label for="paymentmethod">payment method *</label>
+                                <select id="paymentmethod" name="paymentmethod" required>
+                                    <option value="">Select payment method...</option>
+                                    <option value="eTransfer">eTransfer</option>
+                                    <option value="cash">Cash</option>
+                                </select>
+                            </div>
+                            <div class="field half">
+                                <label for="address">Address *</label>
+                                <input type="text" name="address" id="address" required />
+                                <span id="address-error" class="address-error-message">Please enter a valid address</span>
+                            </div>
+                            <div class="field half">
+                                <label for="email">Email *</label>
+                                <input type="email" name="email" id="email" required />
+                                <span id="email-error" class="email-error-message">Please enter a valid email address</span>
+                            </div>
+                            <div class="field half">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" name="phone" id="phone" placeholder="(123) 456-7890" pattern="^\(\d{3}\) \d{3}-\d{4}$" title="Please enter a 10-digit phone number in format: (123) 456-7890" required />
+                            </div>
+                        </div>
+                    </div>
 
-                            <input type="checkbox" id="gcut" name="gcut" value="gcut">
-                            <label for="gcut"> Grass Cutting</label>
-                            <span class="help-icon" data-tooltip="Click here for help" title="Click for service details and pricing information">?</span>
-                            <br>
-                            <div id="gcut-details" class="service-details" style="display: none; margin-left: 2rem; margin-top: 1rem;">
+                    <!-- Services Section (Collapsible) -->
+                    <div class="services-section">
+                        <div class="services-header" id="services-header">
+                            <h3 class="section-title">Services <span class="toggle-icon">▼</span></h3>
+                            <p class="services-requirement" id="services-requirement">Please complete all required contact fields above to select services</p>
+                        </div>
+                        <div class="services-content" id="services-content">
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="services">Available Services</label>
+
+                                    <input type="checkbox" id="gcut" name="gcut" value="gcut">
+                                    <label for="gcut"> Grass Cutting</label>
+                                    <span class="help-icon" data-tooltip="Click here for help" title="Click for service details and pricing information">?</span>
+                                    <span id="gcut-frequency-options">
+                                        <input type="radio" id="gcut-onetime" name="gcut-frequency" value="onetime">
+                                        <label for="gcut-onetime">One-time</label>
+                                        <input type="radio" id="gcut-weekly" name="gcut-frequency" value="weekly">
+                                        <label for="gcut-weekly">Weekly</label>
+                                        <input type="radio" id="gcut-monthly" name="gcut-frequency" value="monthly">
+                                        <label for="gcut-monthly">Monthly</label>
+                                    </span>
+                                    <br>
+                                    <div id="gcut-details" class="service-details">
                                 <div class="field half">
                                     <label for="yard-size">Yard Size (sq ft)</label>
                                     <input type="text" name="yard-size" id="yard-size" placeholder="e.g. 1000" />
@@ -205,12 +233,27 @@
                                         <option value="onetime">One-time service</option>
                                     </select>
                                 </div>
-                            </div>
+                                <!-- Calendly badge widget begin -->
+                                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+                                <div>
+                                    <button type="button" class="button primary calendly-book-btn" onclick="openCalendlyForGrassCutting()">Book Grass Cutting Slot</button>
+                                </div>
+                                <!-- Calendly badge widget end -->
+                                    </div>
 
-                            <input type="checkbox" id="dwalk" name="dwalk" value="dwalk">
-                            <label for="dwalk"> Dog Walking</label>
-                            <br>
-                            <div id="dwalk-details" class="service-details" style="display: none; margin-left: 2rem; margin-top: 1rem;">
+                                    <input type="checkbox" id="dwalk" name="dwalk" value="dwalk">
+                                    <label for="dwalk"> Dog Walking</label>
+                                    <span id="dwalk-frequency-options">
+                                        <input type="radio" id="dwalk-onetime" name="dwalk-frequency" value="onetime">
+                                        <label for="dwalk-onetime">One-time</label>
+                                        <input type="radio" id="dwalk-weekly" name="dwalk-frequency" value="weekly">
+                                        <label for="dwalk-weekly">Weekly</label>
+                                        <input type="radio" id="dwalk-monthly" name="dwalk-frequency" value="monthly">
+                                        <label for="dwalk-monthly">Monthly</label>
+                                    </span>
+                                    <br>
+                            <div id="dwalk-details" class="service-details">
                                 <div id="dog-names-container">
                                     <div class="field half dog-name-field">
                                         <label for="dog-name-1">Dog 1 Name</label>
@@ -257,12 +300,27 @@
                                         <option value="custom">Other (specify in message)</option>
                                     </select>
                                 </div>
+                                <!-- Calendly badge widget begin -->
+                                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+                                <div>
+                                    <button type="button" class="button primary calendly-book-btn" onclick="openCalendlyForDogWalking()">Book Dog Walking Slot</button>
+                                </div>
+                                <!-- Calendly badge widget end -->
                             </div>
 
-                            <input type="checkbox" id="gclean" name="gclean" value="gclean">
-                            <label for="gclean"> Garbage/Recycling bin cleaning</label>
+                                    <input type="checkbox" id="gclean" name="gclean" value="gclean">
+                                    <label for="gclean"> Garbage/Recycling bin cleaning</label>
+                                    <span id="gclean-frequency-options">
+                                        <input type="radio" id="gclean-onetime" name="gclean-frequency" value="onetime">
+                                        <label for="gclean-onetime">One-time</label>
+                                        <input type="radio" id="gclean-weekly" name="gclean-frequency" value="weekly">
+                                        <label for="gclean-weekly">Weekly</label>
+                                        <input type="radio" id="gclean-monthly" name="gclean-frequency" value="monthly">
+                                        <label for="gclean-monthly">Monthly</label>
+                                    </span>
                             <br>
-                            <div id="gclean-details" class="service-details" style="display: none; margin-left: 2rem; margin-top: 1rem;">
+                            <div id="gclean-details" class="service-details">
                                 <div class="field half">
                                     <label for="bin-count">Number of Bins</label>
                                     <select name="bin-count" id="bin-count">
@@ -295,67 +353,85 @@
                                         <option value="onetime">One-time cleaning</option>
                                     </select>
                                 </div>
+                                <!-- Calendly badge widget begin -->
+                                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+                                <div>
+                                    <button type="button" class="button primary calendly-book-btn" onclick="openCalendlyForBinCleaning()">Book Bin Cleaning Slot</button>
+                                </div>
+                                <!-- Calendly badge widget end -->
+                            </div>
+
+                                    <input type="checkbox" id="snowshovel" name="snowshovel" value="snowshovel">
+                                    <label for="snowshovel"> Snow Shoveling</label>
+                                    <span id="snowshovel-frequency-options">
+                                        <input type="radio" id="snowshovel-onetime" name="snowshovel-frequency" value="onetime">
+                                        <label for="snowshovel-onetime">One-time</label>
+                                        <input type="radio" id="snowshovel-weekly" name="snowshovel-frequency" value="weekly">
+                                        <label for="snowshovel-weekly">Weekly</label>
+                                        <input type="radio" id="snowshovel-monthly" name="snowshovel-frequency" value="monthly">
+                                        <label for="snowshovel-monthly">Monthly</label>
+                                    </span>
+                                    <br>
+                                    <div id="snowshovel-details" class="service-details">
+                                        <div class="field half">
+                                            <label for="snow-area">Area to Clear</label>
+                                            <select name="snow-area" id="snow-area">
+                                                <option value="">Select...</option>
+                                                <option value="driveway">Driveway Only</option>
+                                                <option value="walkway">Walkway Only</option>
+                                                <option value="both">Both Driveway & Walkway</option>
+                                                <option value="other">Other (specify in message)</option>
+                                            </select>
+                                        </div>
+                                        <div class="field half">
+                                            <label for="snow-size">Approximate Area Size</label>
+                                            <input type="text" name="snow-size" id="snow-size" placeholder="e.g. 20x20 feet" />
+                                        </div>
+                                        <div class="field half">
+                                            <label for="snow-frequency">Service Frequency</label>
+                                            <select name="snow-frequency" id="snow-frequency">
+                                                <option value="">Select...</option>
+                                                <option value="per-snowfall">Per Snowfall</option>
+                                                <option value="weekly">Weekly During Winter</option>
+                                                <option value="monthly">Monthly Contract</option>
+                                                <option value="onetime">One-time Service</option>
+                                            </select>
+                                        </div>
+                                        <div class="field half">
+                                            <label for="snow-priority">Priority Level</label>
+                                            <select name="snow-priority" id="snow-priority">
+                                                <option value="">Select...</option>
+                                                <option value="standard">Standard (within 24 hours)</option>
+                                                <option value="priority">Priority (within 12 hours)</option>
+                                                <option value="urgent">Urgent (within 6 hours)</option>
+                                            </select>
+                                        </div>
+                                        <!-- Calendly badge widget begin -->
+                                        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                                        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+                                        <div>
+                                            <button type="button" class="button primary calendly-book-btn" onclick="openCalendlyForSnowShoveling()">Book Snow Shoveling Slot</button>
+                                        </div>
+                                        <!-- Calendly badge widget end -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="field">
-                            <label for="booking">Booking & Scheduling</label>
-
-                            <div class="field half">
-                                <label for="preferred-date">Preferred Start Date</label>
-                                <input type="date" name="preferred-date" id="preferred-date" />
-                            </div>
-
-                            <div class="field half">
-                                <label for="preferred-time">Preferred Time</label>
-                                <select name="preferred-time" id="preferred-time">
-                                    <option value="">Select...</option>
-                                    <option value="morning">Morning (8-12 PM)</option>
-                                    <option value="afternoon">Afternoon (12-5 PM)</option>
-                                    <option value="evening">Evening (5-8 PM)</option>
-                                    <option value="flexible">Flexible</option>
-                                </select>
-                            </div>
-
-                            <div class="field half">
-                                <label for="backup-date">Backup Date (weather contingency)</label>
-                                <input type="date" name="backup-date" id="backup-date" />
-                            </div>
-
-                            <div class="field half">
-                                <label for="backup-time">Backup Time</label>
-                                <select name="backup-time" id="backup-time">
-                                    <option value="">Select...</option>
-                                    <option value="morning">Morning (8-12 PM)</option>
-                                    <option value="afternoon">Afternoon (12-5 PM)</option>
-                                    <option value="evening">Evening (5-8 PM)</option>
-                                    <option value="flexible">Flexible</option>
-                                </select>
-                            </div>
-
-                            <div class="field">
-                                <label>
-                                    <input type="checkbox" id="recurring" name="recurring" value="yes">
-                                    This is for recurring service (check for weekly/monthly scheduling)
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="message">Message</label>
-                            <textarea name="message" id="message" rows="4" placeholder="Please include any special instructions, additional details, or specific requirements..."></textarea>
-                        </div>
+                    <div class="field">
+                        <label for="message">Additional Message</label>
+                        <textarea name="message" id="message" rows="4" placeholder="Any additional information about your service request..."></textarea>
                     </div>
+
                     <ul class="actions">
                         <li><input type="submit" value="Send Service Request" class="primary" /></li>
+                    </ul>
+                    <ul class="actions">
                         <li><input type="reset" value="Reset Form" /></li>
                     </ul>
-   <div style=" padding: 1rem; margin: 1rem 0; border-radius: 5px; border-left: 4px solid #4CAF50;">
-                    <p><strong>📧 Where does your request go?</strong><br>
-                    Your service request will be sent directly to our email. We use a secure form service (Formspree) to process submissions and will respond within 24 hours to confirm your booking and provide payment details.</p>
-                </div>
                     <!-- Success message (initially hidden) -->
-                    <div id="form-success" style="display: none; padding: 1rem; background: #4CAF50; color: white; margin-top: 1rem; border-radius: 5px;">
+                    <div id="form-success">
                         <h4>Thank you for your service request!</h4>
                         <p>We have received your booking request and will contact you within 24 hours to confirm your appointment and provide payment details.</p>
                     </div>
@@ -629,68 +705,438 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
     <script>
         $(document).ready(function() {
             let dogCount = 1;
+            let addressValidationTimeout;
+            let isAddressValid = false;
+            let emailValidationTimeout;
+            let isEmailValid = false;
 
-            // Show/hide service details when checkboxes are clicked
-            $('#gcut').change(function() {
-                if ($(this).is(':checked')) {
-                    $('#gcut-details').slideDown();
+            // Function to validate Winnipeg address
+            function validateWinnipegAddress(address) {
+                // Remove extra spaces and convert to lowercase for checking
+                const cleanAddress = address.toLowerCase().trim();
+
+                // Check if address contains Winnipeg indicators
+                const winnipegIndicators = [
+                    'winnipeg', 'wpg', 'mb', 'manitoba', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8', 'r9'
+                ];
+
+                // Check for postal code patterns (Canadian postal codes)
+                const postalCodePattern = /[a-z]\d[a-z]\s?\d[a-z]\d/i;
+                const winnipegPostalPattern = /r[2-9][a-z]\s?\d[a-z]\d/i;
+
+                // Address must have some basic structure (number + street name)
+                const basicAddressPattern = /^\d+\s+\w+/;
+
+                if (!basicAddressPattern.test(cleanAddress)) {
+                    return false;
+                }
+
+                // Check for Winnipeg-specific postal codes or city indicators
+                const hasWinnipegIndicator = winnipegIndicators.some(indicator =>
+                    cleanAddress.includes(indicator)
+                );
+
+                const hasWinnipegPostal = winnipegPostalPattern.test(cleanAddress);
+
+                return hasWinnipegIndicator || hasWinnipegPostal ||
+                       // Accept any address with basic structure - backend will validate Winnipeg location
+                       (basicAddressPattern.test(cleanAddress) && address.length > 8);
+            }
+
+            // Function to check address validity with visual feedback
+            function checkAddressValidity() {
+                const addressInput = $('#address');
+                const errorMessage = $('#address-error');
+                const address = addressInput.val().trim();
+
+                if (address.length === 0) {
+                    addressInput.removeClass('address-error address-valid address-validating');
+                    errorMessage.hide();
+                    isAddressValid = false;
+                    return;
+                }
+
+                if (address.length < 5) {
+                    addressInput.removeClass('address-valid address-validating').addClass('address-error');
+                    errorMessage.text('Address too short').show();
+                    isAddressValid = false;
+                    return;
+                }
+
+                // Show validating state
+                addressInput.removeClass('address-error address-valid').addClass('address-validating');
+                errorMessage.hide();
+
+                // Clear any existing timeout
+                clearTimeout(addressValidationTimeout);
+
+                // Set timeout for validation (simulating API call delay)
+                addressValidationTimeout = setTimeout(function() {
+                    if (validateWinnipegAddress(address)) {
+                        addressInput.removeClass('address-error address-validating').addClass('address-valid');
+                        errorMessage.hide();
+                        isAddressValid = true;
+                    } else {
+                        addressInput.removeClass('address-valid address-validating').addClass('address-error');
+                        errorMessage.text('Please enter a valid address').show();
+                        isAddressValid = false;
+                    }
+
+                    // Re-check form completion after address validation
+                    checkContactFieldsCompletion();
+                }, 1000);
+            }
+
+            // Function to validate email format
+            function validateEmailFormat(email) {
+                // Comprehensive email regex pattern
+                const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+                // Check basic format
+                if (!emailPattern.test(email)) {
+                    return false;
+                }
+
+                // Additional checks
+                const parts = email.split('@');
+                if (parts.length !== 2) return false;
+
+                const [localPart, domain] = parts;
+
+                // Local part checks
+                if (localPart.length === 0 || localPart.length > 64) return false;
+                if (localPart.startsWith('.') || localPart.endsWith('.')) return false;
+                if (localPart.includes('..')) return false;
+
+                // Domain checks
+                if (domain.length === 0 || domain.length > 253) return false;
+                if (domain.startsWith('.') || domain.endsWith('.')) return false;
+                if (domain.includes('..')) return false;
+                if (!domain.includes('.')) return false;
+
+                // Check for valid domain extension
+                const domainParts = domain.split('.');
+                const extension = domainParts[domainParts.length - 1];
+                if (extension.length < 2) return false;
+
+                return true;
+            }
+
+            // Function to check email validity with visual feedback
+            function checkEmailValidity() {
+                const emailInput = $('#email');
+                const errorMessage = $('#email-error');
+                const email = emailInput.val().trim();
+
+                if (email.length === 0) {
+                    emailInput.removeClass('email-error email-valid email-validating');
+                    errorMessage.hide();
+                    isEmailValid = false;
+                    return;
+                }
+
+                if (email.length < 5) {
+                    emailInput.removeClass('email-valid email-validating').addClass('email-error');
+                    errorMessage.text('Email too short').show();
+                    isEmailValid = false;
+                    return;
+                }
+
+                // Show validating state
+                emailInput.removeClass('email-error email-valid').addClass('email-validating');
+                errorMessage.hide();
+
+                // Clear any existing timeout
+                clearTimeout(emailValidationTimeout);
+
+                // Set timeout for validation (simulating processing delay)
+                emailValidationTimeout = setTimeout(function() {
+                    if (validateEmailFormat(email)) {
+                        emailInput.removeClass('email-error email-validating').addClass('email-valid');
+                        errorMessage.hide();
+                        isEmailValid = true;
+                    } else {
+                        emailInput.removeClass('email-valid email-validating').addClass('email-error');
+                        errorMessage.text('Please enter a valid email address').show();
+                        isEmailValid = false;
+                    }
+
+                    // Re-check form completion after email validation
+                    checkContactFieldsCompletion();
+                }, 500);
+            }
+
+            // Function to check if all required contact fields are filled
+            function checkContactFieldsCompletion() {
+                const name = $('#name').val().trim();
+                const email = $('#email').val().trim();
+                const phone = $('#phone').val().trim();
+                const address = $('#address').val().trim();
+                const paymentMethod = $('#paymentmethod').val();
+
+                const allFieldsFilled = name && email && phone && address && paymentMethod && isAddressValid && isEmailValid;
+
+                const servicesHeader = $('#services-header');
+                const servicesContent = $('#services-content');
+                const servicesRequirement = $('#services-requirement');
+
+                if (allFieldsFilled) {
+                    servicesRequirement.hide();
+                    servicesContent.show();
+                    if (!servicesHeader.hasClass('click-enabled')) {
+                        servicesHeader.addClass('click-enabled').on('click', function() {
+                            servicesContent.slideToggle();
+                            const icon = $(this).find('.toggle-icon');
+                            icon.text(icon.text() === '▼' ? '▲' : '▼');
+                        });
+                    }
                 } else {
-                    $('#gcut-details').slideUp();
+                    servicesRequirement.show();
+                    servicesContent.hide();
+                    servicesHeader.removeClass('click-enabled').off('click');
+                    servicesHeader.find('.toggle-icon').text('▼');
+                }
+            }
+
+            // Event listeners for contact fields
+            $('#name, #phone, #paymentmethod').on('input change', checkContactFieldsCompletion);
+
+            // Address input with validation
+            $('#address').on('input', function() {
+                checkAddressValidity();
+            });
+
+            // Email input with validation
+            $('#email').on('input', function() {
+                checkEmailValidity();
+            });
+
+            // Initial check
+            checkContactFieldsCompletion();
+
+            // Phone number formatting
+            $('#phone').on('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+
+                if (value.length >= 6) {
+                    value = value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+                } else if (value.length >= 3) {
+                    value = value.replace(/(\d{3})(\d{0,3})/, '($1) $2');
+                } else if (value.length > 0) {
+                    value = value.replace(/(\d{0,3})/, '($1');
+                }
+
+                e.target.value = value;
+
+                // Re-check form completion after phone formatting
+                checkContactFieldsCompletion();
+            });
+
+            // Service checkboxes - show/hide details
+            $('#gcut').change(function() {
+                if (this.checked) {
+                    $('#gcut-frequency-options').show();
+                    $('#gcut-details').show();
+                } else {
+                    $('#gcut-frequency-options').hide();
+                    $('#gcut-details').hide();
+                    // Clear frequency selection when unchecked
+                    $('input[name="gcut-frequency"]').prop('checked', false);
                 }
             });
 
             $('#dwalk').change(function() {
-                if ($(this).is(':checked')) {
-                    $('#dwalk-details').slideDown();
+                if (this.checked) {
+                    $('#dwalk-frequency-options').show();
+                    $('#dwalk-details').show();
                 } else {
-                    $('#dwalk-details').slideUp();
+                    $('#dwalk-frequency-options').hide();
+                    $('#dwalk-details').hide();
+                    // Clear frequency selection when unchecked
+                    $('input[name="dwalk-frequency"]').prop('checked', false);
                 }
             });
 
             $('#gclean').change(function() {
-                if ($(this).is(':checked')) {
-                    $('#gclean-details').slideDown();
+                if (this.checked) {
+                    $('#gclean-frequency-options').show();
+                    $('#gclean-details').show();
                 } else {
-                    $('#gclean-details').slideUp();
+                    $('#gclean-frequency-options').hide();
+                    $('#gclean-details').hide();
+                    // Clear frequency selection when unchecked
+                    $('input[name="gclean-frequency"]').prop('checked', false);
+                }
+            });
+
+            $('#snowshovel').change(function() {
+                if (this.checked) {
+                    $('#snowshovel-frequency-options').show();
+                    $('#snowshovel-details').show();
+                } else {
+                    $('#snowshovel-frequency-options').hide();
+                    $('#snowshovel-details').hide();
+                    // Clear frequency selection when unchecked
+                    $('input[name="snowshovel-frequency"]').prop('checked', false);
                 }
             });
 
             // Add dog functionality
             $('#add-dog').click(function() {
                 dogCount++;
-                const dogNameField = `
-                    <div class="field half dog-name-field" data-dog-number="${dogCount}">
+                const newDogField = `
+                    <div class="field half dog-name-field">
                         <label for="dog-name-${dogCount}">Dog ${dogCount} Name</label>
                         <input type="text" name="dog-name-${dogCount}" id="dog-name-${dogCount}" placeholder="Dog's name" />
-                        <button type="button" class="remove-dog button small" data-dog-id="${dogCount}">Remove</button>
+                        <button type="button" class="button small remove-dog">Remove</button>
                     </div>
                 `;
-                $('#dog-names-container').append(dogNameField);
+                $('#dog-names-container').append(newDogField);
             });
 
             // Remove dog functionality (using event delegation)
             $(document).on('click', '.remove-dog', function(e) {
                 e.preventDefault();
-                e.stopPropagation();
-
-                console.log('Remove button clicked'); // Debug log
-
                 $(this).closest('.dog-name-field').remove();
+                dogCount--;
 
-                // Update dog numbers
-                let newCount = 1;
+                // Re-number remaining dog fields
                 $('.dog-name-field').each(function(index) {
-                    $(this).attr('data-dog-number', newCount);
-                    $(this).find('label').text(`Dog ${newCount} Name`);
-                    $(this).find('input').attr('name', `dog-name-${newCount}`);
-                    $(this).find('input').attr('id', `dog-name-${newCount}`);
-                    $(this).find('.remove-dog').attr('data-dog-id', newCount);
-                    newCount++;
+                    const newIndex = index + 1;
+                    const label = $(this).find('label');
+                    const input = $(this).find('input');
+
+                    label.attr('for', `dog-name-${newIndex}`).text(`Dog ${newIndex} Name`);
+                    input.attr('name', `dog-name-${newIndex}`).attr('id', `dog-name-${newIndex}`);
+                });
+                dogCount = $('.dog-name-field').length;
+            });
+
+            // Calendly functions
+            window.openCalendlyForGrassCutting = function() {
+                const userName = document.getElementById('name').value;
+                const userEmail = document.getElementById('email').value;
+                const userPhone = document.getElementById('phone').value;
+                const userAddress = document.getElementById('address').value;
+                const paymentMethod = document.getElementById('paymentmethod').value;
+
+                const yardSize = document.getElementById('yard-size').value;
+                const yardType = document.getElementById('yard-type').value;
+                const grassRate = document.getElementById('grass-rate').value;
+                const grassSchedule = document.getElementById('grass-schedule').value;
+                const gcutFrequency = document.querySelector('input[name="gcut-frequency"]:checked')?.value || '';
+
+                let notes = "Customer Details:\n";
+                notes += `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nAddress: ${userAddress}\nPayment: ${paymentMethod}\n\n`;
+                notes += "Service: Grass Cutting\n";
+                notes += `Frequency: ${gcutFrequency}\nYard Size: ${yardSize}\nYard Type: ${yardType}\nRate: ${grassRate}\nSchedule: ${grassSchedule}\n\n`;
+                notes += "Source: Lazar Services Website";
+
+                Calendly.initPopupWidget({
+                    url: 'https://calendly.com/lazarservices/1h-block',
+                    prefill: {
+                        name: userName || '',
+                        email: userEmail || '',
+                        customAnswers: { a1: notes }
+                    },
+                    utm: { utmSource: 'lazar-services-website', utmMedium: 'form', utmCampaign: 'grass-cutting' }
+                });
+            };
+
+            window.openCalendlyForDogWalking = function() {
+                const userName = document.getElementById('name').value;
+                const userEmail = document.getElementById('email').value;
+                const userPhone = document.getElementById('phone').value;
+                const userAddress = document.getElementById('address').value;
+                const paymentMethod = document.getElementById('paymentmethod').value;
+
+                const dogWeight = document.getElementById('dog-weight').value;
+                const walkTime = document.getElementById('walk-time').value;
+                const walkFrequency = document.getElementById('walk-frequency').value;
+                const walkDuration = document.getElementById('walk-duration').value;
+                const dwalkFrequency = document.querySelector('input[name="dwalk-frequency"]:checked')?.value || '';
+
+                let dogNames = [];
+                document.querySelectorAll('.dog-name-field input').forEach(input => {
+                    if (input.value.trim()) dogNames.push(input.value.trim());
                 });
 
-                dogCount = $('.dog-name-field').length;
-                console.log('New dog count:', dogCount); // Debug log
-            });
+                let notes = "Customer Details:\n";
+                notes += `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nAddress: ${userAddress}\nPayment: ${paymentMethod}\n\n`;
+                notes += "Service: Dog Walking\n";
+                notes += `Frequency: ${dwalkFrequency}\nDogs: ${dogNames.join(', ')}\nWeight: ${dogWeight}\nTime: ${walkTime}\nFrequency: ${walkFrequency}\nDuration: ${walkDuration}\n\n`;
+                notes += "Source: Lazar Services Website";
+
+                Calendly.initPopupWidget({
+                    url: 'https://calendly.com/lazarservices/1h-block',
+                    prefill: {
+                        name: userName || '',
+                        email: userEmail || '',
+                        customAnswers: { a1: notes }
+                    },
+                    utm: { utmSource: 'lazar-services-website', utmMedium: 'form', utmCampaign: 'dog-walking' }
+                });
+            };
+
+            window.openCalendlyForBinCleaning = function() {
+                const userName = document.getElementById('name').value;
+                const userEmail = document.getElementById('email').value;
+                const userPhone = document.getElementById('phone').value;
+                const userAddress = document.getElementById('address').value;
+                const paymentMethod = document.getElementById('paymentmethod').value;
+
+                const binCount = document.getElementById('bin-count').value;
+                const binType = document.getElementById('bin-type').value;
+                const cleanRate = document.getElementById('clean-rate').value;
+                const cleanFrequency = document.getElementById('clean-frequency').value;
+                const gcleanFrequency = document.querySelector('input[name="gclean-frequency"]:checked')?.value || '';
+
+                let notes = "Customer Details:\n";
+                notes += `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nAddress: ${userAddress}\nPayment: ${paymentMethod}\n\n`;
+                notes += "Service: Bin Cleaning\n";
+                notes += `Frequency: ${gcleanFrequency}\nBins: ${binCount}\nTypes: ${binType}\nRate: ${cleanRate}\nSchedule: ${cleanFrequency}\n\n`;
+                notes += "Source: Lazar Services Website";
+
+                Calendly.initPopupWidget({
+                    url: 'https://calendly.com/lazarservices/1h-block',
+                    prefill: {
+                        name: userName || '',
+                        email: userEmail || '',
+                        customAnswers: { a1: notes }
+                    },
+                    utm: { utmSource: 'lazar-services-website', utmMedium: 'form', utmCampaign: 'bin-cleaning' }
+                });
+            };
+
+            window.openCalendlyForSnowShoveling = function() {
+                const userName = document.getElementById('name').value;
+                const userEmail = document.getElementById('email').value;
+                const userPhone = document.getElementById('phone').value;
+                const userAddress = document.getElementById('address').value;
+                const paymentMethod = document.getElementById('paymentmethod').value;
+
+                const snowArea = document.getElementById('snow-area').value;
+                const snowSize = document.getElementById('snow-size').value;
+                const snowFrequency = document.getElementById('snow-frequency').value;
+                const snowPriority = document.getElementById('snow-priority').value;
+                const snowshovelFrequency = document.querySelector('input[name="snowshovel-frequency"]:checked')?.value || '';
+
+                let notes = "Customer Details:\n";
+                notes += `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nAddress: ${userAddress}\nPayment: ${paymentMethod}\n\n`;
+                notes += "Service: Snow Shoveling\n";
+                notes += `Frequency: ${snowshovelFrequency}\nArea: ${snowArea}\nSize: ${snowSize}\nSchedule: ${snowFrequency}\nPriority: ${snowPriority}\n\n`;
+                notes += "Source: Lazar Services Website";
+
+                Calendly.initPopupWidget({
+                    url: 'https://calendly.com/lazarservices/1h-block',
+                    prefill: {
+                        name: userName || '',
+                        email: userEmail || '',
+                        customAnswers: { a1: notes }
+                    },
+                    utm: { utmSource: 'lazar-services-website', utmMedium: 'form', utmCampaign: 'snow-shoveling' }
+                });
+            };
         });
     </script>
 

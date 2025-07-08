@@ -1,0 +1,251 @@
+/* Responsive Design - Media Queries */
+
+/* Large Screens */
+@media screen and (max-width: 1680px) {
+	html {
+		font-size: 12pt;
+	}
+
+	#wrapper {
+		padding: 3rem 2rem;
+	}
+
+	#main article {
+		width: 42rem;
+		max-width: 100%;
+	}
+}
+
+/* Medium Large Screens */
+@media screen and (max-width: 1280px) {
+	#header nav ul {
+		width: 85vw;
+	}
+}
+
+/* Medium Screens */
+@media screen and (max-width: 980px) {
+	#header .content p br {
+		display: none;
+	}
+
+	#header nav ul {
+		width: 90vw;
+	}
+
+	#main article {
+		width: 90%;
+		max-width: 100%;
+		padding: 3rem 2rem 1.5rem 2rem;
+	}
+}
+
+/* Tablet and Small Screens */
+@media screen and (max-width: 736px) {
+	html {
+		font-size: 11pt;
+	}
+
+	#wrapper {
+		padding: 2rem 1rem;
+	}
+
+	#header > * {
+		margin-top: 2rem;
+	}
+
+	#header > *:before {
+		top: calc(-2rem - 1px);
+		height: calc(2rem + 1px);
+	}
+
+	#header .logo {
+		width: 4.75rem;
+		height: 4.75rem;
+		line-height: 4.75rem;
+	}
+
+	#header .logo .icon:before {
+		font-size: 1.75rem;
+	}
+
+	#header .content .inner {
+		padding: 2.5rem 1rem;
+	}
+
+	#header .content p {
+		line-height: 1.875;
+	}
+
+	#header nav ul {
+		width: 95vw;
+	}
+
+	#main article {
+		width: 95%;
+		padding: 2.5rem 1.5rem 1rem 1.5rem;
+	}
+
+	#main article .close:before {
+		top: 0.875rem;
+		left: 0.875rem;
+		width: 2.25rem;
+		height: 2.25rem;
+		background-size: 14px 14px;
+	}
+
+	.image.main {
+		margin: 2rem 0;
+	}
+
+	h1 {
+		font-size: 1.75rem;
+		line-height: 1.4;
+	}
+
+	h2 {
+		font-size: 1.25em;
+		line-height: 1.5;
+	}
+}
+
+/* Mobile Screens */
+@media screen and (max-width: 480px) {
+	html, body {
+		min-width: 320px;
+	}
+
+	html {
+		font-size: 10pt;
+	}
+
+	#wrapper {
+		padding: 1rem;
+	}
+
+	#header {
+		padding: 1.5rem 0;
+	}
+
+	#header .content .inner {
+		padding: 2.5rem 0;
+	}
+
+	#header nav ul {
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		min-width: 10rem;
+		max-width: 100%;
+	}
+
+	#header nav ul li {
+		border-left: 0;
+		border-top: solid 1px #ffffff;
+	}
+
+	#header nav ul li:first-child {
+		border-top: 0;
+	}
+
+	#header nav ul li a {
+		min-height: 3rem;
+		line-height: 1.3;
+		min-width: 0;
+		width: 100%;
+		padding: 0.75rem 1rem;
+		height: auto;
+	}
+
+	#header nav.use-middle:after {
+		display: none;
+	}
+
+	#main article {
+		width: 100%;
+		padding: 2rem 1rem 1rem 1rem;
+	}
+
+	.image.main {
+		margin: 1.5rem 0;
+	}
+
+	/* Form Responsive Adjustments */
+	form > .fields {
+		width: calc(100% + 3rem);
+		margin: -1.5rem 0 2rem -1.5rem;
+	}
+
+	form > .fields > .field {
+		padding: 1.5rem 0 0 1.5rem;
+		width: calc(100% - 1.5rem);
+	}
+
+	form > .fields > .field.half {
+		width: calc(100% - 1.5rem);
+	}
+
+	form > .fields > .field.third {
+		width: calc(100% - 1.5rem);
+	}
+
+	form > .fields > .field.quarter {
+		width: calc(100% - 1.5rem);
+	}
+
+	/* Button Responsive Adjustments */
+	ul.actions:not(.fixed) {
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		margin-left: 0;
+		width: 100% !important;
+	}
+
+	ul.actions:not(.fixed) li {
+		-moz-flex-grow: 1;
+		-webkit-flex-grow: 1;
+		-ms-flex-grow: 1;
+		flex-grow: 1;
+		-moz-flex-shrink: 1;
+		-webkit-flex-shrink: 1;
+		-ms-flex-shrink: 1;
+		flex-shrink: 1;
+		padding: 1rem 0 0 0;
+		text-align: center;
+		width: 100%;
+	}
+
+	ul.actions:not(.fixed) li > * {
+		width: 100%;
+	}
+
+	ul.actions:not(.fixed) li:first-child {
+		padding-top: 0;
+	}
+
+	ul.actions:not(.fixed) li input[type="submit"],
+	ul.actions:not(.fixed) li input[type="reset"],
+	ul.actions:not(.fixed) li input[type="button"],
+	ul.actions:not(.fixed) li button,
+	ul.actions:not(.fixed) li .button {
+		width: 100%;
+	}
+
+	ul.actions:not(.fixed) li input[type="submit"].icon:before,
+	ul.actions:not(.fixed) li input[type="reset"].icon:before,
+	ul.actions:not(.fixed) li input[type="button"].icon:before,
+	ul.actions:not(.fixed) li button.icon:before,
+	ul.actions:not(.fixed) li .button.icon:before {
+		margin-left: -0.5em;
+	}
+}
+
+/* Very Small Screens */
+@media screen and (max-width: 360px) {
+	html {
+		font-size: 10pt;
+	}
+}

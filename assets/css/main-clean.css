@@ -207,7 +207,7 @@ form > .fields {
 form > .fields > .field {
 	flex-grow: 0;
 	flex-shrink: 0;
-	padding: 2.5rem 0 0 1.5rem;
+	padding: 1.5rem 0 0 1.5rem;
 	width: calc(100% - 1.5rem);
 }
 
@@ -230,9 +230,8 @@ label {
 	font-weight: 300;
 	letter-spacing: 0.2rem;
 	line-height: 1.5;
-	margin: 1rem 0 0.25rem 0;
+	margin: 0 0 1rem 0;
 	text-transform: uppercase;
-	text-align: left;
 }
 
 /* Help Icon */
@@ -350,7 +349,6 @@ input[type="radio"] + label {
 	padding-left: 2.65rem;
 	padding-right: 0.75rem;
 	position: relative;
-	text-align: left;
 }
 
 input[type="checkbox"] + label:before,
@@ -808,7 +806,6 @@ button {
 /* BG */
 #bg {
 	transform: scale(1.0);
-	backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 	position: fixed;
 	top: 0;
@@ -926,9 +923,7 @@ body.is-preload #bg:before { background-color: #000000; }
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	object-position: center 75%;
 	border-radius: 100%;
-	transform: translateY(1rem);
 }
 
 #header .content {
@@ -1061,9 +1056,7 @@ body.is-preload #header .content .inner {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		object-position: center 75%;
 		border-radius: 100%;
-		transform: translateY(0.8rem);
 	}
 
 	#header .content .inner { padding: 2.5rem 1rem; }
@@ -1123,7 +1116,7 @@ body.is-preload #header .content .inner {
 	transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
 	padding: 4.5rem 2.5rem 1.5rem 2.5rem;
 	position: relative;
-	width: 80%;
+	width: 40rem;
 	max-width: 100%;
 	background-color: rgba(27, 31, 34, 0.85);
 	border-radius: 4px;
@@ -1187,14 +1180,14 @@ body.is-preload #header .content .inner {
 /* Main content responsive */
 @media screen and (max-width: 1680px) {
 	#main article {
-		width: 80%;
+		width: 42rem;
 		max-width: 100%;
 	}
 }
 
 @media screen and (max-width: 980px) {
 	#main article {
-		width: 80%;
+		width: 90%;
 		max-width: 100%;
 		padding: 3rem 2rem 1.5rem 2rem;
 	}
@@ -1202,7 +1195,7 @@ body.is-preload #header .content .inner {
 
 @media screen and (max-width: 736px) {
 	#main article {
-		width: 80%;
+		width: 95%;
 		padding: 2.5rem 1.5rem 1rem 1.5rem;
 	}
 }
@@ -1338,25 +1331,6 @@ textarea:-webkit-autofill:active {
 	background: rgba(0, 0, 0, 0.8) !important;
 }
 
-/* Email field validation with grey background */
-.email-error {
-	border-color: #ff4444 !important;
-	box-shadow: 0 0 0 1px #ff4444 !important;
-	background: rgba(0, 0, 0, 0.8) !important;
-}
-
-.email-validating {
-	border-color: #ffaa00 !important;
-	box-shadow: 0 0 0 1px #ffaa00 !important;
-	background: rgba(0, 0, 0, 0.8) !important;
-}
-
-.email-valid {
-	border-color: #44ff44 !important;
-	box-shadow: 0 0 0 1px #44ff44 !important;
-	background: rgba(0, 0, 0, 0.8) !important;
-}
-
 /* Address field autofill override */
 #address:-webkit-autofill,
 #address:-webkit-autofill:hover,
@@ -1378,31 +1352,6 @@ textarea:-webkit-autofill:active {
 }
 
 #address.address-valid:-webkit-autofill {
-	border-color: #44ff44 !important;
-	box-shadow: 0 0 0 1px #44ff44, 0 0 0 30px rgba(0, 0, 0, 0.8) inset !important;
-}
-
-/* Email field autofill override */
-#email:-webkit-autofill,
-#email:-webkit-autofill:hover,
-#email:-webkit-autofill:focus,
-#email:-webkit-autofill:active {
-	-webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.8) inset !important;
-	-webkit-text-fill-color: #ffffff !important;
-	background: rgba(0, 0, 0, 0.8) !important;
-}
-
-#email.email-error:-webkit-autofill {
-	border-color: #ff4444 !important;
-	box-shadow: 0 0 0 1px #ff4444, 0 0 0 30px rgba(0, 0, 0, 0.8) inset !important;
-}
-
-#email.email-validating:-webkit-autofill {
-	border-color: #ffaa00 !important;
-	box-shadow: 0 0 0 1px #ffaa00, 0 0 0 30px rgba(0, 0, 0, 0.8) inset !important;
-}
-
-#email.email-valid:-webkit-autofill {
 	border-color: #44ff44 !important;
 	box-shadow: 0 0 0 1px #44ff44, 0 0 0 30px rgba(0, 0, 0, 0.8) inset !important;
 }
@@ -1461,7 +1410,6 @@ select option {
 	background: rgba(255, 255, 255, 0.05);
 	border-radius: 4px;
 	border: 1px solid rgba(255, 255, 255, 0.15);
-	text-align: left;
 }
 
 .toggle-icon {
@@ -1475,25 +1423,4 @@ select option {
 	color: #ff4444;
 	font-size: 0.8em;
 	margin-top: 0.25rem;
-}
-
-/* EMAIL ERROR MESSAGE */
-.email-error-message {
-	display: none;
-	color: #ff4444;
-	font-size: 0.8em;
-	margin-top: 0.25rem;
-}
-
-/* SERVICE FREQUENCY OPTIONS - HIDDEN BY DEFAULT */
-#gcut-frequency-options,
-#dwalk-frequency-options,
-#gclean-frequency-options,
-#snowshovel-frequency-options {
-	display: none;
-}
-
-/* SERVICE DETAILS - HIDDEN BY DEFAULT */
-.service-details {
-	display: none;
 }

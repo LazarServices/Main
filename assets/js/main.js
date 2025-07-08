@@ -308,9 +308,9 @@
 		// Events.
 			$body.on('click', function(event) {
 
-				// Article visible? Hide.
-					if ($body.hasClass('is-article-visible'))
-						$main._hide(true);
+				// Article visible? Hide only if it's not the contact form
+				if ($body.hasClass('is-article-visible') && !$('#contact').hasClass('active'))
+					$main._hide(true);
 
 			});
 
@@ -320,8 +320,8 @@
 
 					case 27:
 
-						// Article visible? Hide.
-							if ($body.hasClass('is-article-visible'))
+						// Article visible? Hide only if it's not the contact form
+							if ($body.hasClass('is-article-visible') && !$('#contact').hasClass('active'))
 								$main._hide(true);
 
 						break;

@@ -51,26 +51,26 @@
             <article id="GrassCutting">
                 <h2 class="major">GRASS CUTTING</h2>
                 <span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-                <p>Discounts If you have your own lawnmower for me to use to provide service.</p>
+                <p>Standard yard is 1000 sq ft</p>
 
                 <table>
                     <thead>
                         <tr>
                             <th>GRASS CUTTING</th>
                             <th>STANDARD RATE</th>
-                            <th>DISCOUNTED RATE</th>
+                            <!-- <th>DISCOUNTED RATE</th> -->
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>FRONT STANDARD YARD</td>
                             <td>$40</td>
-                            <td>$25</td>
+                            <!-- <td>$25</td> -->
                         </tr>
                         <tr>
                             <td>BACK STANDARD YARD</td>
                             <td>$45</td>
-                            <td>$35</td>
+                            <!-- <td>$35</td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -108,14 +108,14 @@
             <article id="GarbageBinClean">
                 <h2 class="major">GARBAGE BIN CLEAN</h2>
                 <span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-                <p>Discounts If you have garden hose and running water to provide thorough bin cleanings.</p>
+                <p>Must have garden hose and running water to provide thorough bin cleanings.</p>
 
                 <table>
                     <thead>
                         <tr>
                             <th>GARBAGE BIN CLEAN</th>
-                            <th>STANDARD RATE</th>
-                            <th>DISCOUNTED RATE</th>
+                            <th>GARBAGE CAN </th>
+                            <th>RECYCLING </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -140,6 +140,10 @@
                 <p>services provided must be paid for in advance, no credit cards accepted.</p>
 
                 <form method="post" action="https://formspree.io/f/xdknowvp">
+                    <!-- Calendly widget scripts -->
+                    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
                     <!-- Hidden field to identify this as a service booking form -->
                     <input type="hidden" name="_subject" value="New Service Booking Request - Lazar Services">
                     <input type="hidden" name="_next" value="thank-you.html">
@@ -191,7 +195,6 @@
 
                                     <input type="checkbox" id="gcut" name="gcut" value="gcut">
                                     <label for="gcut"> Grass Cutting</label>
-                                    <span class="help-icon" data-tooltip="Click here for help" title="Click for service details and pricing information">?</span>
                                     <span id="gcut-frequency-options">
                                         <input type="radio" id="gcut-onetime" name="gcut-frequency" value="onetime">
                                         <label for="gcut-onetime">One-time</label>
@@ -215,14 +218,14 @@
                                         <option value="both">Both Front & Back</option>
                                     </select>
                                 </div>
-                                <div class="field half">
+                                <!-- <div class="field half">
                                     <label for="grass-rate">Rate Type</label>
                                     <select name="grass-rate" id="grass-rate">
                                         <option value="">Select...</option>
-                                        <option value="standard">Standard Rate (I provide equipment)</option>
-                                        <option value="discount">Discounted Rate (You provide lawnmower)</option>
+                                        <option value="standard">Standard Rate</option>
+                                         <option value="discount">Discounted Rate (You provide lawnmower)</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="field half">
                                     <label for="grass-schedule">Preferred Schedule</label>
                                     <select name="grass-schedule" id="grass-schedule">
@@ -233,13 +236,7 @@
                                         <option value="onetime">One-time service</option>
                                     </select>
                                 </div>
-                                <!-- Calendly badge widget begin -->
-                                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-                                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-                                <div>
-                                    <button type="button" class="button primary calendly-book-btn" onclick="openCalendlyForGrassCutting()">Book Grass Cutting Slot</button>
-                                </div>
-                                <!-- Calendly badge widget end -->
+
                                     </div>
 
                                     <input type="checkbox" id="dwalk" name="dwalk" value="dwalk">
@@ -267,26 +264,13 @@
                                     <label for="dog-weight">Total Approximate Weight</label>
                                     <input type="text" name="dog-weight" id="dog-weight" placeholder="e.g. 25 lbs" />
                                 </div>
-                                <div class="field half">
-                                    <label for="walk-time">Preferred Time Slot</label>
-                                    <select name="walk-time" id="walk-time">
-                                        <option value="">Select...</option>
-                                        <option value="early-morning">Early Morning (6-8 AM)</option>
-                                        <option value="morning">Morning (8-11 AM)</option>
-                                        <option value="midday">Midday (11 AM-2 PM)</option>
-                                        <option value="afternoon">Afternoon (2-5 PM)</option>
-                                        <option value="evening">Evening (5-7 PM)</option>
-                                        <option value="flexible">Flexible</option>
-                                    </select>
-                                </div>
+
                                 <div class="field half">
                                     <label for="walk-frequency">Walking Frequency</label>
                                     <select name="walk-frequency" id="walk-frequency">
                                         <option value="">Select...</option>
                                         <option value="daily">Daily</option>
-                                        <option value="weekdays">Weekdays Only</option>
-                                        <option value="weekends">Weekends Only</option>
-                                        <option value="few-times">Few times per week</option>
+                                        <option value="few-times">Weekly</option>
                                         <option value="onetime">One-time walk</option>
                                     </select>
                                 </div>
@@ -297,16 +281,9 @@
                                         <option value="30min">30 minutes</option>
                                         <option value="45min">45 minutes</option>
                                         <option value="60min">1 hour</option>
-                                        <option value="custom">Other (specify in message)</option>
                                     </select>
                                 </div>
-                                <!-- Calendly badge widget begin -->
-                                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-                                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-                                <div>
-                                    <button type="button" class="button primary calendly-book-btn" onclick="openCalendlyForDogWalking()">Book Dog Walking Slot</button>
-                                </div>
-                                <!-- Calendly badge widget end -->
+
                             </div>
 
                                     <input type="checkbox" id="gclean" name="gclean" value="gclean">
@@ -335,14 +312,14 @@
                                     <label for="bin-type">Bin Types</label>
                                     <input type="text" name="bin-type" id="bin-type" placeholder="e.g. Garbage, Recycling, Compost" />
                                 </div>
-                                <div class="field half">
+                                <!-- <div class="field half">
                                     <label for="clean-rate">Rate Type</label>
                                     <select name="clean-rate" id="clean-rate">
                                         <option value="">Select...</option>
                                         <option value="standard">Standard Rate (I provide water/hose)</option>
                                         <option value="discount">Discounted Rate (You provide hose/water)</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="field half">
                                     <label for="clean-frequency">Cleaning Frequency</label>
                                     <select name="clean-frequency" id="clean-frequency">
@@ -353,13 +330,7 @@
                                         <option value="onetime">One-time cleaning</option>
                                     </select>
                                 </div>
-                                <!-- Calendly badge widget begin -->
-                                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-                                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-                                <div>
-                                    <button type="button" class="button primary calendly-book-btn" onclick="openCalendlyForBinCleaning()">Book Bin Cleaning Slot</button>
-                                </div>
-                                <!-- Calendly badge widget end -->
+
                             </div>
 
                                     <input type="checkbox" id="snowshovel" name="snowshovel" value="snowshovel">
@@ -394,40 +365,19 @@
                                                 <option value="">Select...</option>
                                                 <option value="per-snowfall">Per Snowfall</option>
                                                 <option value="weekly">Weekly During Winter</option>
-                                                <option value="monthly">Monthly Contract</option>
                                                 <option value="onetime">One-time Service</option>
                                             </select>
                                         </div>
-                                        <div class="field half">
-                                            <label for="snow-priority">Priority Level</label>
-                                            <select name="snow-priority" id="snow-priority">
-                                                <option value="">Select...</option>
-                                                <option value="standard">Standard (within 24 hours)</option>
-                                                <option value="priority">Priority (within 12 hours)</option>
-                                                <option value="urgent">Urgent (within 6 hours)</option>
-                                            </select>
-                                        </div>
-                                        <!-- Calendly badge widget begin -->
-                                        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-                                        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-                                        <div>
-                                            <button type="button" class="button primary calendly-book-btn" onclick="openCalendlyForSnowShoveling()">Book Snow Shoveling Slot</button>
-                                        </div>
-                                        <!-- Calendly badge widget end -->
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                    <div class="field">
-                        <label for="message">Additional Message</label>
-                        <textarea name="message" id="message" rows="4" placeholder="Any additional information about your service request..."></textarea>
-                    </div>
 
                     <ul class="actions">
-                        <li><input type="submit" value="Send Service Request" class="primary" /></li>
-                    </ul>
-                    <ul class="actions">
+                        <li><button type="button" class="button primary calendly-book-btn" onclick="openCalendlyForAllServices()">Book Selected Services</button></li>
                         <li><input type="reset" value="Reset Form" /></li>
                     </ul>
                     <!-- Success message (initially hidden) -->
@@ -1012,129 +962,135 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                 dogCount = $('.dog-name-field').length;
             });
 
-            // Calendly functions
-            window.openCalendlyForGrassCutting = function() {
-                const userName = document.getElementById('name').value;
-                const userEmail = document.getElementById('email').value;
-                const userPhone = document.getElementById('phone').value;
-                const userAddress = document.getElementById('address').value;
-                const paymentMethod = document.getElementById('paymentmethod').value;
+            // Universal Calendly function for all selected services
+            window.openCalendlyForAllServices = function() {
+                const userName = document.getElementById('name')?.value || '';
+                const userEmail = document.getElementById('email')?.value || '';
+                const userPhone = document.getElementById('phone')?.value || '';
+                const userAddress = document.getElementById('address')?.value || '';
+                const paymentMethod = document.getElementById('paymentmethod')?.value || '';
 
-                const yardSize = document.getElementById('yard-size').value;
-                const yardType = document.getElementById('yard-type').value;
-                const grassRate = document.getElementById('grass-rate').value;
-                const grassSchedule = document.getElementById('grass-schedule').value;
-                const gcutFrequency = document.querySelector('input[name="gcut-frequency"]:checked')?.value || '';
+                let selectedServices = [];
+                let servicesOverview = "";
+                let customerInfo = "";
+                let serviceDetails = "";
 
-                let notes = "Customer Details:\n";
-                notes += `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nAddress: ${userAddress}\nPayment: ${paymentMethod}\n\n`;
-                notes += "Service: Grass Cutting\n";
-                notes += `Frequency: ${gcutFrequency}\nYard Size: ${yardSize}\nYard Type: ${yardType}\nRate: ${grassRate}\nSchedule: ${grassSchedule}\n\n`;
-                notes += "Source: Lazar Services Website";
+                // Build customer information
+                customerInfo = `CUSTOMER INFORMATION:\n`;
+                customerInfo += `Name: ${userName}\n`;
+                customerInfo += `Email: ${userEmail}\n`;
+                customerInfo += `Phone: ${userPhone}\n`;
+                customerInfo += `Address: ${userAddress}\n`;
+                customerInfo += `Payment Method: ${paymentMethod}\n`;
+                customerInfo += `Booking Date: ${new Date().toLocaleString()}\n`;
+                customerInfo += `Source: Lazar Services Website`;
+
+                // Check for Grass Cutting
+                if (document.getElementById('gcut')?.checked) {
+                    selectedServices.push('Grass Cutting');
+                    const yardSize = document.getElementById('yard-size')?.value || 'Not specified';
+                    const yardType = document.getElementById('yard-type')?.value || 'Not specified';
+                    const grassSchedule = document.getElementById('grass-schedule')?.value || 'Not specified';
+                    const gcutFrequency = document.querySelector('input[name="gcut-frequency"]:checked')?.value || 'Not specified';
+
+                    serviceDetails += `GRASS CUTTING SERVICE:\n`;
+                    serviceDetails += `• Frequency Type: ${gcutFrequency}\n`;
+                    serviceDetails += `• Yard Size: ${yardSize} sq ft\n`;
+                    serviceDetails += `• Yard Type: ${yardType}\n`;
+                    serviceDetails += `• Preferred Schedule: ${grassSchedule}\n\n`;
+                }
+
+                // Check for Dog Walking
+                if (document.getElementById('dwalk')?.checked) {
+                    selectedServices.push('Dog Walking');
+                    const dogWeight = document.getElementById('dog-weight')?.value || 'Not specified';
+                    const walkFrequency = document.getElementById('walk-frequency')?.value || 'Not specified';
+                    const walkDuration = document.getElementById('walk-duration')?.value || 'Not specified';
+                    const dwalkFrequency = document.querySelector('input[name="dwalk-frequency"]:checked')?.value || 'Not specified';
+
+                    let dogNames = [];
+                    document.querySelectorAll('.dog-name-field input').forEach(input => {
+                        if (input.value.trim()) dogNames.push(input.value.trim());
+                    });
+                    const dogNamesText = dogNames.length > 0 ? dogNames.join(', ') : 'Not specified';
+
+                    serviceDetails += `DOG WALKING SERVICE:\n`;
+                    serviceDetails += `• Frequency Type: ${dwalkFrequency}\n`;
+                    serviceDetails += `• Dog Names: ${dogNamesText}\n`;
+                    serviceDetails += `• Total Weight: ${dogWeight}\n`;
+                    serviceDetails += `• Walking Frequency: ${walkFrequency}\n`;
+                    serviceDetails += `• Walk Duration: ${walkDuration}\n\n`;
+                }
+
+                // Check for Garbage/Recycling Bin Cleaning
+                if (document.getElementById('gclean')?.checked) {
+                    selectedServices.push('Garbage/Recycling Bin Cleaning');
+                    const binCount = document.getElementById('bin-count')?.value || 'Not specified';
+                    const binType = document.getElementById('bin-type')?.value || 'Not specified';
+                    const cleanFrequency = document.getElementById('clean-frequency')?.value || 'Not specified';
+                    const gcleanFrequency = document.querySelector('input[name="gclean-frequency"]:checked')?.value || 'Not specified';
+
+                    serviceDetails += `GARBAGE/RECYCLING BIN CLEANING SERVICE:\n`;
+                    serviceDetails += `• Frequency Type: ${gcleanFrequency}\n`;
+                    serviceDetails += `• Number of Bins: ${binCount}\n`;
+                    serviceDetails += `• Bin Types: ${binType}\n`;
+                    serviceDetails += `• Cleaning Schedule: ${cleanFrequency}\n\n`;
+                }
+
+                // Check for Snow Shoveling
+                if (document.getElementById('snowshovel')?.checked) {
+                    selectedServices.push('Snow Shoveling');
+                    const snowArea = document.getElementById('snow-area')?.value || 'Not specified';
+                    const snowSize = document.getElementById('snow-size')?.value || 'Not specified';
+                    const snowFrequency = document.getElementById('snow-frequency')?.value || 'Not specified';
+                    const snowPriority = document.getElementById('snow-priority')?.value || 'Not specified';
+                    const snowshovelFrequency = document.querySelector('input[name="snowshovel-frequency"]:checked')?.value || 'Not specified';
+
+                    serviceDetails += `SNOW SHOVELING SERVICE:\n`;
+                    serviceDetails += `• Frequency Type: ${snowshovelFrequency}\n`;
+                    serviceDetails += `• Area to Clear: ${snowArea}\n`;
+                    serviceDetails += `• Area Size: ${snowSize}\n`;
+                    serviceDetails += `• Service Frequency: ${snowFrequency}\n`;
+                    serviceDetails += `• Priority Level: ${snowPriority}\n\n`;
+                }
+
+                if (selectedServices.length === 0) {
+                    alert('Please select at least one service before booking.');
+                    return;
+                }
+
+                // Build services overview
+                servicesOverview = `SERVICES REQUESTED (${selectedServices.length} total):\n`;
+                servicesOverview += selectedServices.map((service, index) => `${index + 1}. ${service}`).join('\n');
+                servicesOverview += `\n\nCUSTOMER: ${userName} (${userEmail})`;
+                servicesOverview += `\nBOOKING DATE: ${new Date().toLocaleString()}`;
+
+                // Generate UTM campaign based on selected services
+                let utmCampaign = selectedServices.join('-').toLowerCase().replace(/[^a-z0-9-]/g, '-');
+
+                console.log('Calendly Data:', {
+                    servicesOverview,
+                    customerInfo,
+                    serviceDetails,
+                    utmCampaign
+                });
 
                 Calendly.initPopupWidget({
                     url: 'https://calendly.com/lazarservices/1h-block',
                     prefill: {
                         name: userName || '',
                         email: userEmail || '',
-                        customAnswers: { a1: notes }
+                        customAnswers: {
+                            a1: servicesOverview,
+                            a2: customerInfo,
+                            a3: serviceDetails
+                        }
                     },
-                    utm: { utmSource: 'lazar-services-website', utmMedium: 'form', utmCampaign: 'grass-cutting' }
-                });
-            };
-
-            window.openCalendlyForDogWalking = function() {
-                const userName = document.getElementById('name').value;
-                const userEmail = document.getElementById('email').value;
-                const userPhone = document.getElementById('phone').value;
-                const userAddress = document.getElementById('address').value;
-                const paymentMethod = document.getElementById('paymentmethod').value;
-
-                const dogWeight = document.getElementById('dog-weight').value;
-                const walkTime = document.getElementById('walk-time').value;
-                const walkFrequency = document.getElementById('walk-frequency').value;
-                const walkDuration = document.getElementById('walk-duration').value;
-                const dwalkFrequency = document.querySelector('input[name="dwalk-frequency"]:checked')?.value || '';
-
-                let dogNames = [];
-                document.querySelectorAll('.dog-name-field input').forEach(input => {
-                    if (input.value.trim()) dogNames.push(input.value.trim());
-                });
-
-                let notes = "Customer Details:\n";
-                notes += `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nAddress: ${userAddress}\nPayment: ${paymentMethod}\n\n`;
-                notes += "Service: Dog Walking\n";
-                notes += `Frequency: ${dwalkFrequency}\nDogs: ${dogNames.join(', ')}\nWeight: ${dogWeight}\nTime: ${walkTime}\nFrequency: ${walkFrequency}\nDuration: ${walkDuration}\n\n`;
-                notes += "Source: Lazar Services Website";
-
-                Calendly.initPopupWidget({
-                    url: 'https://calendly.com/lazarservices/1h-block',
-                    prefill: {
-                        name: userName || '',
-                        email: userEmail || '',
-                        customAnswers: { a1: notes }
-                    },
-                    utm: { utmSource: 'lazar-services-website', utmMedium: 'form', utmCampaign: 'dog-walking' }
-                });
-            };
-
-            window.openCalendlyForBinCleaning = function() {
-                const userName = document.getElementById('name').value;
-                const userEmail = document.getElementById('email').value;
-                const userPhone = document.getElementById('phone').value;
-                const userAddress = document.getElementById('address').value;
-                const paymentMethod = document.getElementById('paymentmethod').value;
-
-                const binCount = document.getElementById('bin-count').value;
-                const binType = document.getElementById('bin-type').value;
-                const cleanRate = document.getElementById('clean-rate').value;
-                const cleanFrequency = document.getElementById('clean-frequency').value;
-                const gcleanFrequency = document.querySelector('input[name="gclean-frequency"]:checked')?.value || '';
-
-                let notes = "Customer Details:\n";
-                notes += `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nAddress: ${userAddress}\nPayment: ${paymentMethod}\n\n`;
-                notes += "Service: Bin Cleaning\n";
-                notes += `Frequency: ${gcleanFrequency}\nBins: ${binCount}\nTypes: ${binType}\nRate: ${cleanRate}\nSchedule: ${cleanFrequency}\n\n`;
-                notes += "Source: Lazar Services Website";
-
-                Calendly.initPopupWidget({
-                    url: 'https://calendly.com/lazarservices/1h-block',
-                    prefill: {
-                        name: userName || '',
-                        email: userEmail || '',
-                        customAnswers: { a1: notes }
-                    },
-                    utm: { utmSource: 'lazar-services-website', utmMedium: 'form', utmCampaign: 'bin-cleaning' }
-                });
-            };
-
-            window.openCalendlyForSnowShoveling = function() {
-                const userName = document.getElementById('name').value;
-                const userEmail = document.getElementById('email').value;
-                const userPhone = document.getElementById('phone').value;
-                const userAddress = document.getElementById('address').value;
-                const paymentMethod = document.getElementById('paymentmethod').value;
-
-                const snowArea = document.getElementById('snow-area').value;
-                const snowSize = document.getElementById('snow-size').value;
-                const snowFrequency = document.getElementById('snow-frequency').value;
-                const snowPriority = document.getElementById('snow-priority').value;
-                const snowshovelFrequency = document.querySelector('input[name="snowshovel-frequency"]:checked')?.value || '';
-
-                let notes = "Customer Details:\n";
-                notes += `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nAddress: ${userAddress}\nPayment: ${paymentMethod}\n\n`;
-                notes += "Service: Snow Shoveling\n";
-                notes += `Frequency: ${snowshovelFrequency}\nArea: ${snowArea}\nSize: ${snowSize}\nSchedule: ${snowFrequency}\nPriority: ${snowPriority}\n\n`;
-                notes += "Source: Lazar Services Website";
-
-                Calendly.initPopupWidget({
-                    url: 'https://calendly.com/lazarservices/1h-block',
-                    prefill: {
-                        name: userName || '',
-                        email: userEmail || '',
-                        customAnswers: { a1: notes }
-                    },
-                    utm: { utmSource: 'lazar-services-website', utmMedium: 'form', utmCampaign: 'snow-shoveling' }
+                    utm: {
+                        utmSource: 'lazar-services-website',
+                        utmMedium: 'form',
+                        utmCampaign: utmCampaign
+                    }
                 });
             };
         });

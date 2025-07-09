@@ -34,8 +34,7 @@ u, i, center, dl, dt, dd, ol, ul, li, fieldset,
 form, label, legend, table, caption, tbody,
 tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
-footer, header, hgroup, menu, nav, output, ruby,
-section, summary, time, mark, audio, video {
+footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -207,7 +206,7 @@ form > .fields {
 form > .fields > .field {
 	flex-grow: 0;
 	flex-shrink: 0;
-	padding: 2.5rem 0 0 1.5rem;
+	padding: 1.5rem 0 0 1.5rem;
 	width: calc(100% - 1.5rem);
 }
 
@@ -230,34 +229,9 @@ label {
 	font-weight: 300;
 	letter-spacing: 0.2rem;
 	line-height: 1.5;
-	margin: 1rem 0 0.25rem 0;
+	margin: 0 0 0.25rem 0;
 	text-transform: uppercase;
 	text-align: left;
-}
-
-/* Help Icon */
-.help-icon {
-	display: inline-block;
-	width: 18px;
-	height: 18px;
-	line-height: 16px;
-	text-align: center;
-	background: rgba(255, 255, 255, 0.1);
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	border-radius: 50%;
-	color: #ffffff;
-	font-size: 11px;
-	font-weight: 600;
-	margin-left: 8px;
-	cursor: help;
-	transition: all 0.2s ease;
-	vertical-align: middle;
-}
-
-.help-icon:hover {
-	background: rgba(255, 255, 255, 0.2);
-	border-color: rgba(255, 255, 255, 0.4);
-	transform: scale(1.1);
 }
 
 input[type="text"],
@@ -350,7 +324,6 @@ input[type="radio"] + label {
 	padding-left: 2.65rem;
 	padding-right: 0.75rem;
 	position: relative;
-	text-align: left;
 }
 
 input[type="checkbox"] + label:before,
@@ -1123,7 +1096,7 @@ body.is-preload #header .content .inner {
 	transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
 	padding: 4.5rem 2.5rem 1.5rem 2.5rem;
 	position: relative;
-	width: 80%;
+	width: 40rem;
 	max-width: 100%;
 	background-color: rgba(27, 31, 34, 0.85);
 	border-radius: 4px;
@@ -1187,14 +1160,14 @@ body.is-preload #header .content .inner {
 /* Main content responsive */
 @media screen and (max-width: 1680px) {
 	#main article {
-		width: 80%;
+		width: 42rem;
 		max-width: 100%;
 	}
 }
 
 @media screen and (max-width: 980px) {
 	#main article {
-		width: 80%;
+		width: 90%;
 		max-width: 100%;
 		padding: 3rem 2rem 1.5rem 2rem;
 	}
@@ -1202,7 +1175,7 @@ body.is-preload #header .content .inner {
 
 @media screen and (max-width: 736px) {
 	#main article {
-		width: 80%;
+		width: 95%;
 		padding: 2.5rem 1.5rem 1rem 1.5rem;
 	}
 }
@@ -1232,7 +1205,6 @@ body.is-article-visible #footer {
 
 body.is-preload #footer { opacity: 0; }
 
-/* Contact Form Styles */
 
 /* CONSOLIDATED FORM FIELD STYLING */
 /* Base styling for all form fields */
@@ -1302,6 +1274,12 @@ textarea:-webkit-autofill:active {
 #contact select,
 #contact textarea {
 	background: rgba(0, 0, 0, 0.8) !important;
+	width: 100%;
+	text-align: left;
+}
+
+#contact.active {
+	width: 190%;
 }
 
 /* Maintain validation border colors while keeping grey background */
@@ -1338,25 +1316,6 @@ textarea:-webkit-autofill:active {
 	background: rgba(0, 0, 0, 0.8) !important;
 }
 
-/* Email field validation with grey background */
-.email-error {
-	border-color: #ff4444 !important;
-	box-shadow: 0 0 0 1px #ff4444 !important;
-	background: rgba(0, 0, 0, 0.8) !important;
-}
-
-.email-validating {
-	border-color: #ffaa00 !important;
-	box-shadow: 0 0 0 1px #ffaa00 !important;
-	background: rgba(0, 0, 0, 0.8) !important;
-}
-
-.email-valid {
-	border-color: #44ff44 !important;
-	box-shadow: 0 0 0 1px #44ff44 !important;
-	background: rgba(0, 0, 0, 0.8) !important;
-}
-
 /* Address field autofill override */
 #address:-webkit-autofill,
 #address:-webkit-autofill:hover,
@@ -1380,6 +1339,25 @@ textarea:-webkit-autofill:active {
 #address.address-valid:-webkit-autofill {
 	border-color: #44ff44 !important;
 	box-shadow: 0 0 0 1px #44ff44, 0 0 0 30px rgba(0, 0, 0, 0.8) inset !important;
+}
+
+/* Email field validation with grey background */
+.email-error {
+	border-color: #ff4444 !important;
+	box-shadow: 0 0 0 1px #ff4444 !important;
+	background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.email-validating {
+	border-color: #ffaa00 !important;
+	box-shadow: 0 0 0 1px #ffaa00 !important;
+	background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.email-valid {
+	border-color: #44ff44 !important;
+	box-shadow: 0 0 0 1px #44ff44 !important;
+	background: rgba(0, 0, 0, 0.8) !important;
 }
 
 /* Email field autofill override */
@@ -1420,6 +1398,7 @@ select option {
 	background: rgba(255, 255, 255, 0.05);
 	border-radius: 4px;
 	border: 1px solid rgba(255, 255, 255, 0.15);
+	width: 100%;
 }
 
 .section-title {
@@ -1461,7 +1440,6 @@ select option {
 	background: rgba(255, 255, 255, 0.05);
 	border-radius: 4px;
 	border: 1px solid rgba(255, 255, 255, 0.15);
-	text-align: left;
 }
 
 .toggle-icon {
@@ -1469,15 +1447,8 @@ select option {
 	transition: transform 0.3s ease;
 }
 
-/* ADDRESS ERROR MESSAGE */
-.address-error-message {
-	display: none;
-	color: #ff4444;
-	font-size: 0.8em;
-	margin-top: 0.25rem;
-}
-
-/* EMAIL ERROR MESSAGE */
+/* ADDRESS AND EMAIL ERROR MESSAGES */
+.address-error-message,
 .email-error-message {
 	display: none;
 	color: #ff4444;
@@ -1485,15 +1456,105 @@ select option {
 	margin-top: 0.25rem;
 }
 
-/* SERVICE FREQUENCY OPTIONS - HIDDEN BY DEFAULT */
+/* CONTACT FORM TEXT ALIGNMENT AND SPACING */
+/* Left-align all text in the contact form */
+#contact label,
+#contact input,
+#contact select,
+#contact textarea,
+#contact .section-title,
+#contact .services-header,
+#contact .services-content,
+#contact .contact-info-section {
+	text-align: left;
+	direction: ltr; /* Ensure proper text direction */
+}
+
+/* Override general label alignment specifically for contact form */
+#contact label {
+	text-align: left;
+	margin: 0 0 0.5rem 0; /* Increase bottom margin for better spacing */
+}
+
+/* Add vertical spacing after textboxes before next label */
+#contact .field {
+	margin-bottom: 1.5rem;
+}
+
+/* Ensure input and textarea fields are properly spaced */
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact textarea {
+	margin-bottom: 0.75rem;
+}
+
+/* Special spacing for service checkboxes and radio buttons to maintain left alignment */
+#contact .services-content label {
+	text-align: left;
+	margin-bottom: 0.5rem;
+}
+
+#contact .services-content input[type="checkbox"],
+#contact .services-content input[type="radio"] {
+	margin-left: 0;
+	margin-right: 0.5rem;
+}
+
+/* Make sure dropdown text aligns properly with left-aligned text */
+#contact select {
+	text-align: left;
+}
+
+/* Adjust button alignment */
+#contact input[type="submit"],
+#contact input[type="reset"],
+#contact input[type="button"],
+#contact .button {
+	text-align: center;
+}
+
+/* Hide service frequency radio buttons and service details by default */
 #gcut-frequency-options,
+#hedge-frequency-options,
+#weed-frequency-options,
+#lawn-frequency-options,
+#other-frequency-options,
 #dwalk-frequency-options,
 #gclean-frequency-options,
-#snowshovel-frequency-options {
+#snowshovel-frequency-options,
+#gcut-details,
+#hedge-details,
+#weed-details,
+#lawn-details,
+#other-details,
+#dwalk-details,
+#gclean-details,
+#snowshovel-details,
+.service-details {
 	display: none;
 }
 
-/* SERVICE DETAILS - HIDDEN BY DEFAULT */
-.service-details {
-	display: none;
+/* Show frequency options when corresponding checkbox is checked */
+#gcut:checked ~ #gcut-frequency-options,
+#hedge:checked ~ #hedge-frequency-options,
+#weed:checked ~ #weed-frequency-options,
+#lawn:checked ~ #lawn-frequency-options,
+#other:checked ~ #other-frequency-options,
+#dwalk:checked ~ #dwalk-frequency-options,
+#gclean:checked ~ #gclean-frequency-options,
+#snowshovel:checked ~ #snowshovel-frequency-options {
+	display: inline-block;
+}
+
+/* Show service details when corresponding checkbox is checked */
+#gcut:checked ~ #gcut-details,
+#hedge:checked ~ #hedge-details,
+#weed:checked ~ #weed-details,
+#lawn:checked ~ #lawn-details,
+#other:checked ~ #other-details,
+#dwalk:checked ~ #dwalk-details,
+#gclean:checked ~ #gclean-details,
+#snowshovel:checked ~ #snowshovel-details {
+	display: block;
 }

@@ -438,5 +438,32 @@
 				// Prevent default form submission
 				e.preventDefault();
 			});
+		// Service checkbox handling - show/hide frequency radio buttons and service details
+		$(document).ready(function() {
+			// Handle checkbox changes for all services
+			$('#gcut, #hedge, #weed, #lawn, #other, #dwalk, #gclean, #snowshovel').on('change', function() {
+				const serviceId = this.id;
+				const frequencyOptions = $('#' + serviceId + '-frequency-options');
+				const serviceDetails = $('#' + serviceId + '-details');
+				const frequencyRadios = frequencyOptions.find('input[type="radio"]');
+				const detailInputs = serviceDetails.find('input, select');
+
+				if (this.checked) {
+					// Show frequency options and service details when checkbox is checked
+					frequencyOptions.show();
+					serviceDetails.show();
+				} else {
+					// Hide frequency options and service details, clear all selections when checkbox is unchecked
+					frequencyOptions.hide();
+					serviceDetails.hide();
+					frequencyRadios.prop('checked', false);
+					detailInputs.val('').prop('selectedIndex', 0);
+				}
+			});
+
+			// Initially hide all frequency options and service details
+			$('#gcut-frequency-options, #hedge-frequency-options, #weed-frequency-options, #lawn-frequency-options, #other-frequency-options, #dwalk-frequency-options, #gclean-frequency-options, #snowshovel-frequency-options').hide();
+			$('#gcut-details, #hedge-details, #weed-details, #lawn-details, #other-details, #dwalk-details, #gclean-details, #snowshovel-details, .service-details').hide();
+		});
 
 })(jQuery);
